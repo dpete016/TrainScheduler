@@ -12,11 +12,13 @@ var database = firebase.database();
 
 $("#add-train-btn").on("click", function(event) {
   event.preventDefault();
+  
+  
 
-  var inTrain = $("train-name-input").val().trim();
-  var inDestination = $("destination-input").val().trim();
-  var inFreq = $("freq-input").val().trim();
-  var inArr = moment($("time-input").val().trim(), "hh:mm").subtract(1, "years").format("X");
+  var inTrain = $('#train-name-input').val();
+  var inDestination = $("#destination-input").val();
+  var inFreq = $("#freq-input").val();
+  var inArr = moment($("#time-input").val(), "hh:mm").format("X");
 
   var currentTime = moment();
   console.log("Current Time: " + moment(currentTime).format("hh:mm"));
@@ -28,12 +30,12 @@ $("#add-train-btn").on("click", function(event) {
     frequency: inFreq
   };
 
-  database.ref().push(inTrain);
+  database.ref().push(newTrain);
 
-  console.log(inTrain.name);
-  console.log(inDestination.destination);
-  console.log(inArr.arrival);
-  console.log(inFreq.frequency);
+  console.log(newTrain.name);
+  console.log(newTrain.destination);
+  console.log(newTrain.arrival);
+  console.log(newTrain.frequency);
 
   alert("Funk added!");
 
@@ -81,9 +83,8 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
     $("<td>").text(newarrival),
     $("<td>").text(inMinutes)
   );
-
   //Append new row to table
-  $("train-table > tbody").append(newRow);
+  $("#train-table").append(newRow);
 
   
 
