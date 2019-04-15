@@ -16,7 +16,6 @@ $("#add-train-btn").on("click", function(event) {
   var inTrain = $("train-name-input").val().trim();
   var inDestination = $("destination-input").val().trim();
   var inFreq = $("freq-input").val().trim();
-
   var inArr = moment($("time-input").val().trim(), "hh:mm").subtract(1, "years").format("X");
 
   var currentTime = moment();
@@ -48,7 +47,7 @@ $("#add-train-btn").on("click", function(event) {
 
 
 
-database.ref().on("child_added", function(childSnapshot) {
+database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   console.log(childSnapshot.val());
 
   var inTrain = childSnapshot.val().name;
