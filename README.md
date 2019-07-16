@@ -12,7 +12,7 @@ Firebase is used to store the data while GitHub backsup the projects and the pag
 
 ### Submission 
 
-The [link to live site!](https://dpete016.github.io/TrainScheduler/)
+The link to the [live site!](https://dpete016.github.io/TrainScheduler/)
 
 ### Instructions
 
